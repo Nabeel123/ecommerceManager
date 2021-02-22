@@ -1,0 +1,16 @@
+.detail-p-image{
+    overflow: hidden;
+    background-position: center;
+    
+}
+.detail-p-image img{
+height: 325px;
+}
+.detailProduct-main{
+    background: #fff;
+}
+.detail-p p{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: bold;
+}

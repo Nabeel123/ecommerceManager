@@ -1,0 +1,18 @@
+.p-desc{
+    resize: none;
+}
+label{
+    font-size: 16px;
+    font-weight: 600;
+}
+.preview-image{
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.card-main{
+    flex-shrink:1;
+}
+.error{
+    color: red;
+}

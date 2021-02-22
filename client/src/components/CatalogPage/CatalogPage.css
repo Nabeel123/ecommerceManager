@@ -1,0 +1,39 @@
+/* .category-modal-main .modal-content{
+    padding: 20px !important;
+} */
+.modal-content {
+  padding: 20px !important;
+}
+.p-title {
+  font-size: 14px;
+}
+.p-desc {
+  display: block;
+  font-size: 12px;
+}
+
+.card-main {
+  cursor: pointer;
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.5rem !important;
+}
+.p-detail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.react-confirm-alert-body > h1 {
+  font-size: 20px;
+}
+.modal-header {
+  padding: 0px;
+  border-bottom: none;
+}
+
+.catlogCatTrash {
+  position: absolute;
+  right: 10px;
+}
