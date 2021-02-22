@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native","debian-openssl-1.1.x"]
+}
+
+model WordpressStore {
+  id        Int       @default(autoincrement()) @id
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  storeUrl        String
+  consumerKey     String
+  consumerSecret  String
+  version   String
+  status    Status
+  userId    Int
+  date      DateTime
+  products  Product[]
+}
+
+model ShopifyStore {
+  id        Int       @default(autoincrement()) @id
+  userId    Int?
+  shopName  String
+  apiKey    String
+  password  String
+  status    Status
+  date      DateTime
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id          Int      @default(autoincrement()) @id
+  name        String
+  image       String
+  price       Float
+  description String
+  status      Status
+  categories  Category[]
+  wordpressStore  WordpressStore?
+  catalog     Catalog
+  userId      Int
+}
+
+model CatalogProduct {
+  id            Int      @default(autoincrement()) @id
+  title         String
+  regularPrice  Float?
+  salePrice     Float?
+  description   String?
+  discount      Float?
+  weight        Float?
+  weightUnit    WeightUnit?
+  shortDesc     String?
+  images        Image[]
+  catalog       Catalog?
+  userId        Int
+  status        Status  @default(ACTIVE)
+}
+
+model Category {
+  id    Int     @id @default(autoincrement())
+  name  String
+  products Product[]
+}
+
+model Catalog {
+  id            Int     @id @default(autoincrement())
+  name          String
+  products      CatalogProduct[]
+  status        Status
+  image         String?
+  userId        Int?
+}
+
+enum Status {
+  PENDING
+  ACTIVE
+  DEACTIVATED
+  DELETED
+}
+
+enum WeightUnit {
+  KG
+  POUND
+  GM
+}
+
+model Image {
+  id        Int       @default(autoincrement()) @id
+  title     String?
+  url       String?
+}

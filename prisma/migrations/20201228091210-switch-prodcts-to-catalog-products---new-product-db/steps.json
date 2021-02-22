@@ -1,0 +1,18 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "Catalog",
+      "field": "products",
+      "type": "CatalogProduct"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CatalogProduct",
+      "field": "catalog",
+      "type": "Catalog",
+      "arity": "Optional"
+    }
+  ]
+}

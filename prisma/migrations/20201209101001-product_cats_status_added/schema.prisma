@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model WordpressStore {
+  id        Int       @default(autoincrement()) @id
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  storeUrl        String
+  consumerKey     String
+  consumerSecret  String
+  version   String
+  status    Status
+  userId    Int
+  date      DateTime
+  products  Product[]
+}
+
+model Product {
+  id    Int      @default(autoincrement()) @id
+  name  String
+  image String
+  price Float
+  description String
+  status  Status
+  categories Category[]
+  wordpressStore  WordpressStore
+}
+
+model Category {
+  id    Int     @id @default(autoincrement())
+  name  String
+  products Product[]
+}
+
+enum Status {
+  PENDING
+  ACTIVE
+  DEACTIVATED
+  DELETED
+}

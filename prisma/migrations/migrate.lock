@@ -1,0 +1,13 @@
+# Prisma Migrate lockfile v1
+
+20201209051210-initial
+20201209101001-product_cats_status_added
+20201211061834-shopify-stores-added
+20201228062701-user-id-in-products
+20201228071151-wordpress-made-optional-in-produc
+20201228075352-catalog-database-table-added
+20201228085901-catalog-product-new-added
+20201228090549-catalog-product-with-multiple-images
+20201228091210-switch-prodcts-to-catalog-products---new-product-db
+20201228092047-catalog-updated
+20201228103604-status-in-catalog-product-added
